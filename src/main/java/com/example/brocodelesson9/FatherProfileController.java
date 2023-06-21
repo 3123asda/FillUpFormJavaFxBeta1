@@ -42,6 +42,7 @@ public class FatherProfileController {
 
 
     static String ErrorMessage;
+    static String ErrorMessageTitle;
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -59,56 +60,66 @@ public class FatherProfileController {
         if (father_firstName.isBlank() || !father_firstName.matches("[a-zA-Z \\s]+")) {
 
             //MethodCollector.FirstNameErrorFunction();
+            ErrorMessageTitle = "First Name Message Error";
             ErrorMessage = "Please Provide Correct First Name";
             MethodCollector.OK_Button_EncounterErrorOccured();
 
         } else if (!father_middleName.matches("[a-zA-Z \\s]+") && !father_middleName.isBlank()) {
 
             //MethodCollector.MiddleNameErrorFunction();
+            ErrorMessageTitle = "Middle Name Message Error";
             ErrorMessage = "Please Provide Correct Middle Name";
             MethodCollector.OK_Button_EncounterErrorOccured();
 
         } else if (father_lastName.isBlank() || !father_lastName.matches("[a-zA-Z \\s]+")) {
 
             //MethodCollector.LastNameErrorFunction();
+            ErrorMessageTitle = "Last Name Message Error";
             ErrorMessage = "Please Provide Correct Last Name";
             MethodCollector.OK_Button_EncounterErrorOccured();
 
         } else if (father_Occupation.isBlank() || !father_Occupation.isBlank() && !father_Occupation.matches("[a-zA-Z \\s]+")) {
 
             //MethodCollector.OccupationErrorFunction();
+            ErrorMessageTitle = "Occupation Message Error";
             ErrorMessage = "Please Provide Correct Occupation";
             MethodCollector.OK_Button_EncounterErrorOccured();
 
         } else if (father_montlySalary.isBlank() ) {
 
             //MethodCollector.SalaryErrorFunction();
+            ErrorMessageTitle = "Monthly Salary Message Error";
             ErrorMessage = "Please Provide Salary";
             MethodCollector.OK_Button_EncounterErrorOccured();
 
         } else if (!father_montlySalary.matches("\\d+")) {
 
+            ErrorMessageTitle = "Monthly Salary Message Error";
             ErrorMessage = "Please Provide Correct Salary";
             MethodCollector.OK_Button_EncounterErrorOccured();
 
         } else if (father_contactNumber.isBlank()) {
 
             //MethodCollector.ContactNumberErrorFunction();
+            ErrorMessageTitle = "Contact Number Message Error";
             ErrorMessage = "Please Provide Contact Number";
             MethodCollector.OK_Button_EncounterErrorOccured();
 
         } else if (father_contactNumber.matches("(09|\\+63)")) {
 
+            ErrorMessageTitle = "Contact Number Message Error";
             ErrorMessage = "Please Provide Correct Contact Number";
             MethodCollector.OK_Button_EncounterErrorOccured();
             
         }  else if (father_contactNumber.matches("(09\\d+)") && !father_contactNumber.matches("(\\d{11})"))
         {
+            ErrorMessageTitle = "Contact Number Message Error";
             ErrorMessage = "09 Start Number Has Only 11 Digit(s)";
             MethodCollector.OK_Button_EncounterErrorOccured();
 
         } else if (father_contactNumber.matches("(\\+63\\d+)") && father_contactNumber.length() != 13)
         {
+            ErrorMessageTitle = "Contact Number Message Error";
             ErrorMessage = "+63 Start Number Have Musts Only 13 Digit(s)";
             MethodCollector.OK_Button_EncounterErrorOccured();
 
@@ -116,12 +127,14 @@ public class FatherProfileController {
 
             //The condition of regex is "(09 | \\+63)" has space it SO it has 09(space) or +63(space)
             //The condition of regex is "(09|\\+63)" has no space SO it has 09 or +63 only
+            ErrorMessageTitle = "Contact Number Message Error";
             ErrorMessage = "Contact Number Must Start At [09 or +63]";
             MethodCollector.OK_Button_EncounterErrorOccured();
 
         } else if (father_Gmail.isBlank()) {
 
             //MethodCollector.GmailAccountErrorFunction();
+            ErrorMessageTitle = "Gmail Account Message Error";
             ErrorMessage = "Gmail Account Can't Be Blank";
             MethodCollector.OK_Button_EncounterErrorOccured();
 
@@ -131,12 +144,14 @@ public class FatherProfileController {
             //Example:
             //If user Inputted UserName, it will execute this condition
             //If user Inputted UserName@gmail.com, It will not Execute this code, and it will jump for another else if
+            ErrorMessageTitle = "Gmail Account Message Error";
             ErrorMessage = "Email Address End In @gmail.com";
             MethodCollector.OK_Button_EncounterErrorOccured();
 
         } else if (father_Facebook.isBlank()) {
 
             //MethodCollector.FacebookAccountErrorFunction();
+            ErrorMessageTitle = "Facebook Account Message Error";
             ErrorMessage = "Facebook Account Can't Be Blank";
             MethodCollector.OK_Button_EncounterErrorOccured();
 

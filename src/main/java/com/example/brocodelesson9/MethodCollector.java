@@ -230,6 +230,30 @@ public class MethodCollector {
 
      }
 
+     static void OK_Button_EncounteredError1()
+             throws IOException {
+          FXMLLoader loader = new FXMLLoader(MethodCollector.class
+                  .getResource("EncounterErrorOccured1.fxml"));
+
+          Scene scene = new Scene(loader.load());
+          Stage EncounteredError1 = new Stage();
+          Image icon = new Image("C:\\Users\\admin\\IdeaProjects\\BroCodeLesson9\\src\\main\\java\\com\\example\\brocodelesson9\\exclamation mark.png");
+          EncounteredError1.getIcons().add(icon);
+          //EncounteredError.setTitle("Invalid Facebook Account");
+
+          /*
+          WarningErrorController ErrorMessage = loader.getController();
+          FatherProfileController UserEncounterError = new FatherProfileController();
+          String Message = UserEncounterError.AllFirstName();
+          ErrorMessage = Message;
+           */
+
+          EncounteredError1.setScene(scene);
+          WarningErrorController warningErrorController = loader.getController();
+          warningErrorController.OK_Button_EncounteredErrorMethod1(EncounteredError1);
+          EncounteredError1.show();
+     }
+
 
 
 }

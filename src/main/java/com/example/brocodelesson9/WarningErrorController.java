@@ -9,9 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
-import com.example.brocodelesson9.FatherProfileController;
-
-import java.io.IOException;
 
 public class WarningErrorController {
 
@@ -22,6 +19,9 @@ public class WarningErrorController {
     @FXML
     Label WarningMessage;
 
+    @FXML
+    Label WarningMessage1;
+
     Stage FirstNameInvalidStage;
     Stage MiddleNameInvalidStage;
     Stage LastNameInvalidStage;
@@ -31,9 +31,11 @@ public class WarningErrorController {
     Stage GmailAccount;
     Stage FacebookAccount;
     Stage EncounteredErrorOccurred;
+    Stage EncounteredErrorOccurred1;
     TextFlow ResizeText;
 
-    public void OK_Button_FirstNameError(ActionEvent event) {
+    public void OK_Button_FirstNameError(ActionEvent event)
+    {
         FirstNameInvalidStage.close();
     }
 
@@ -116,10 +118,24 @@ public class WarningErrorController {
         WarningMessage.setAlignment(Pos.CENTER);
         WarningMessage.setFont(new Font(20));
         WarningMessage.setStyle("-fx-text-fill: red");
+        EncounteredError.setTitle(FatherProfileController.ErrorMessageTitle);
         EncounteredErrorOccurred = EncounteredError;
     }
 
+    public void OK_Button_EncounteredError1(ActionEvent event)
+    {
+        this.EncounteredErrorOccurred1.close();
+    }
 
+    public void OK_Button_EncounteredErrorMethod1(Stage EncounteredError1){
+
+        WarningMessage1.setText(MotherProfileController.ErrorMessage);
+        WarningMessage1.setAlignment(Pos.CENTER);
+        WarningMessage1.setFont(new Font(20));
+        WarningMessage1.setStyle("-fx-text-fill: red");
+        EncounteredError1.setTitle(MotherProfileController.ErrorMessageTitle);
+        EncounteredErrorOccurred1 = EncounteredError1;
+    }
 
     public void OK_Button_EncounteredError(ActionEvent event)
     {
