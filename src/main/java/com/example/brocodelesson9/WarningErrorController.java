@@ -1,12 +1,15 @@
 package com.example.brocodelesson9;
 
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+import javafx.fxml.FXML;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
+import javafx.scene.control.Label;
+import javafx.scene.text.Font;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
+import com.example.brocodelesson9.FatherProfileController;
 
 import java.io.IOException;
 
@@ -16,21 +19,8 @@ public class WarningErrorController {
     private static Scene scene;
     private static Parent root;
 
-
-    /*
-
-    void ErrorBackToScene1(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(WarningErrorController.class.getResource("Scene1.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Image icon = new Image("C:\\Users\\admin\\IdeaProjects\\BroCodeLesson9\\src\\main\\java\\com\\example\\brocodelesson9\\form.png");
-        stage.getIcons().clear();
-        stage.getIcons().add(icon);
-        stage.setTitle("Fill Up Form");
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-     */
+    @FXML
+    Label WarningMessage;
 
     Stage FirstNameInvalidStage;
     Stage MiddleNameInvalidStage;
@@ -40,6 +30,8 @@ public class WarningErrorController {
     Stage ContactNumberError;
     Stage GmailAccount;
     Stage FacebookAccount;
+    Stage EncounteredErrorOccurred;
+    TextFlow ResizeText;
 
     public void OK_Button_FirstNameError(ActionEvent event) {
         FirstNameInvalidStage.close();
@@ -114,6 +106,24 @@ public class WarningErrorController {
     public void OK_Button_FaceAccountErrorMethod(Stage FacebookAccountError)
     {
         this.FacebookAccount = FacebookAccountError;
+    }
+
+
+
+    public void OK_Button_EncounteredErrorMethod(Stage EncounteredError)
+    {
+        WarningMessage.setText(FatherProfileController.ErrorMessage);
+        WarningMessage.setAlignment(Pos.CENTER);
+        WarningMessage.setFont(new Font(20));
+        WarningMessage.setStyle("-fx-text-fill: red");
+        EncounteredErrorOccurred = EncounteredError;
+    }
+
+
+
+    public void OK_Button_EncounteredError(ActionEvent event)
+    {
+        this.EncounteredErrorOccurred.close();
     }
 
 }
